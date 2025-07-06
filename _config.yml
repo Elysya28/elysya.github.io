@@ -1,0 +1,46 @@
+# Konfigurasi dasar situs
+title: Blog Saya
+email: email@namadomain.com
+description: Blog pribadi tentang petualangan dan pemikiran saya.
+baseurl: "" # Kosongkan jika di root domain, atau "/nama-subfolder" jika di subfolder
+url: "https://namadomain.com" # Ganti dengan domain Anda
+author: Nama Anda
+
+# Pengaturan tema
+theme: minima # Tema default Jekyll, bisa diganti seperti jekyll-theme-hacker, dll.
+
+# Plugin yang digunakan
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Pengaturan posting
+permalink: /:year/:month/:day/:title/
+paginate: 5 # Jumlah posting per halaman
+paginate_path: "/page:num/"
+
+# Pengaturan Markdown
+markdown: kramdown
+kramdown:
+  input: GFM # GitHub Flavored Markdown
+  syntax_highlighter: rouge
+
+# Koleksi tambahan (opsional)
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+# Default untuk posting
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: Nama Anda
+      comments: true
+
+# Pengaturan lain
+timezone: Asia/Jakarta
+exclude: [vendor, Gemfile, Gemfile.lock]

@@ -1,100 +1,82 @@
-### Site Settings ###
-title               : Device Berbasis ARM Indonesia
-description         : >-
-                      Device Berbasis ARM Indonesia
-baseurl             : ""                     # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
-repository          : armarchindo/dbai      # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
-remote_theme        : armarchindo/BlogTemplate
-open_new_tab        : false                             # Opens external URLs in new tab (works for posts, projects and navbar only)
+# --- INFORMASI DASAR SITUS ---
+# Ini adalah pengaturan utama untuk situs Anda.
+# Ganti nilainya dengan informasi Anda sendiri.
 
-### Plugins ###
+title: Judul Situs Anda
+email: email-anda@contoh.com
+description: >- # Tanda `>-` berarti baris baru akan diabaikan hingga paragraf berikutnya.
+  Ini adalah deskripsi singkat situs Anda. Deskripsi ini akan muncul
+  di hasil pencarian Google dan digunakan oleh plugin SEO.
+url: "https://nama-pengguna.github.io" # URL utama situs Anda. PENTING: Jangan diakhiri dengan /
+baseurl: "/nama-repositori" # Gunakan jika situs Anda ada di dalam subdirektori, misal: https://nama-pengguna.github.io/nama-repositori/
+                           # Jika situs Anda langsung di domain utama, biarkan kosong ""
+
+
+# --- PENGATURAN BUILD ---
+# Konfigurasi teknis bagaimana Jekyll akan membangun situs Anda.
+# Biasanya tidak perlu diubah jika menggunakan GitHub Pages.
+
+markdown: kramdown
+highlighter: rouge
+theme: minima # Anda bisa menggunakan tema lain yang didukung GitHub Pages, misalnya: jekyll-theme-cayman, jekyll-theme-merlot
+
 plugins:
-  - jemoji
+  - jekyll-feed       # Membuat feed Atom/RSS untuk post Anda
+  - jekyll-seo-tag    # Menambahkan meta tag untuk SEO secara otomatis
+  - jekyll-sitemap    # Membuat sitemap.xml untuk membantu mesin pencari
 
 
-### Navbar Settings ###
-nav_exclude:                                            # The following paths are excluded from navbar
-  - pages/tags.html
-  - pages/404.html
-  - pages/index.md
+# --- PENGATURAN KONTEN ---
+# Mengatur bagaimana konten Anda ditampilkan.
+
+# Contoh struktur permalink untuk postingan blog
+permalink: /blog/:year/:month/:day/:title/
+
+# Pengaturan paginasi (jika Anda memiliki banyak postingan)
+paginate: 5
+paginate_path: "/blog/page:num/"
 
 
-### Author Info ###
+# --- KOLEKSI ---
+# Berguna jika Anda ingin mengelompokkan konten selain 'posts'.
+# Contoh: portofolio atau proyek.
+# collections:
+#   projects:
+#     output: true
+#     permalink: /projects/:path/
+
+
+# --- VARIABEL KUSTOM ---
+# Anda bisa menambahkan variabel sendiri di sini untuk digunakan di seluruh situs.
+
+# Informasi Penulis/Pemilik
 author:
-  name              : Device Berbasis ARM Indonesia
-  image             : https://avatars.githubusercontent.com/u/7347993
-# behance           : your_username
-# dribbble          : your_username
-# email             : email
-  facebook          : armarchindo
-  github            : armarchindo
-# gitlab            : your_username
-# instagram         : your_username
-# kaggle            : your_username
-# linkedin          : your_username
-# medium            : your_username
-# soundcloud        : your_username
-# spotify           : your_username
-# stackoverflow     : your_user_id
-# tumblr            : your_username.tumblr.com
-# twitch            : your_username
-# twitter           : your_username
-# vimeo             : your_username
-# youtube           : your_channel_name
-# keybase           : your_username
-  discord           : vtV5QSq6D6
+  name: "Nama Lengkap Anda"
+  twitter: "akun_twitter_anda"
+  github: "akun_github_anda"
+
+# Tautan Sosial Media
+social:
+  - title: twitter
+    url: https://twitter.com/akun_twitter_anda
+  - title: github
+    url: https://github.com/akun_github_anda
+  - title: linkedin
+    url: https://www.linkedin.com/in/akun_linkedin_anda
+
+# Integrasi dengan layanan pihak ketiga (contoh: Google Analytics)
+google_analytics: "UA-000000-0" # Ganti dengan Tracking ID Anda
 
 
-### Posts ###
-permalink: /blog/:title
-
-
-### Collections ###
-collections:
-  projects:
-    output: true
-    permalink: /projects/:name
-
-
-### Disqus ###
-disqus:
-  shortname: dbai                     # Your website Shortname on disqus
-
-
-### Analytics ###
-analytics:
-  enabled: false                                        # Set true to enable analytics
-  google:
-    tracking_id: 
-
-
-### Buy me a coffee ###
-# See https://www.buymeacoffee.com/
-buymeacoffee:
-  enabled: false
-  username: your_username
-  color: "#007bff"
-  message: "Thank you for visiting."                    # Message to be displayed aside from the button for a few seconds.
-  description: "Support me on Buy me a coffee!"
-
-
-### Defaults for collections ###
-defaults:
-  - scope:
-      path: ""
-      type: "projects"
-    values:
-      layout: "page"
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      comments: true                                   # Set to true to enable disqus comments
-
-
-### Exclude from processing ###
+# --- PENGECUALIAN ---
+# Berkas atau folder yang tidak akan disertakan saat situs di-build.
 exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
   - README.md
-  - CONTRIBUTING.md
-  - LICENSE
-  - "*.log"
+  - LICENSE.txt

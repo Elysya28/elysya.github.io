@@ -1,46 +1,100 @@
-# Konfigurasi dasar situs
-title: Blog Saya
-email: email@namadomain.com
-description: Blog pribadi tentang petualangan dan pemikiran saya.
-baseurl: "" # Kosongkan jika di root domain, atau "/nama-subfolder" jika di subfolder
-url: "https://namadomain.com" # Ganti dengan domain Anda
-author: Nama Anda
+### Site Settings ###
+title               : Device Berbasis ARM Indonesia
+description         : >-
+                      Device Berbasis ARM Indonesia
+baseurl             : ""                     # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
+repository          : armarchindo/dbai      # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
+remote_theme        : armarchindo/BlogTemplate
+open_new_tab        : false                             # Opens external URLs in new tab (works for posts, projects and navbar only)
 
-# Pengaturan tema
-theme: minima # Tema default Jekyll, bisa diganti seperti jekyll-theme-hacker, dll.
-
-# Plugin yang digunakan
+### Plugins ###
 plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
+  - jemoji
 
-# Pengaturan posting
-permalink: /:year/:month/:day/:title/
-paginate: 5 # Jumlah posting per halaman
-paginate_path: "/page:num/"
 
-# Pengaturan Markdown
-markdown: kramdown
-kramdown:
-  input: GFM # GitHub Flavored Markdown
-  syntax_highlighter: rouge
+### Navbar Settings ###
+nav_exclude:                                            # The following paths are excluded from navbar
+  - pages/tags.html
+  - pages/404.html
+  - pages/index.md
 
-# Koleksi tambahan (opsional)
+
+### Author Info ###
+author:
+  name              : Device Berbasis ARM Indonesia
+  image             : https://avatars.githubusercontent.com/u/7347993
+# behance           : your_username
+# dribbble          : your_username
+# email             : email
+  facebook          : armarchindo
+  github            : armarchindo
+# gitlab            : your_username
+# instagram         : your_username
+# kaggle            : your_username
+# linkedin          : your_username
+# medium            : your_username
+# soundcloud        : your_username
+# spotify           : your_username
+# stackoverflow     : your_user_id
+# tumblr            : your_username.tumblr.com
+# twitch            : your_username
+# twitter           : your_username
+# vimeo             : your_username
+# youtube           : your_channel_name
+# keybase           : your_username
+  discord           : vtV5QSq6D6
+
+
+### Posts ###
+permalink: /blog/:title
+
+
+### Collections ###
 collections:
   projects:
     output: true
-    permalink: /projects/:path/
+    permalink: /projects/:name
 
-# Default untuk posting
+
+### Disqus ###
+disqus:
+  shortname: dbai                     # Your website Shortname on disqus
+
+
+### Analytics ###
+analytics:
+  enabled: false                                        # Set true to enable analytics
+  google:
+    tracking_id: 
+
+
+### Buy me a coffee ###
+# See https://www.buymeacoffee.com/
+buymeacoffee:
+  enabled: false
+  username: your_username
+  color: "#007bff"
+  message: "Thank you for visiting."                    # Message to be displayed aside from the button for a few seconds.
+  description: "Support me on Buy me a coffee!"
+
+
+### Defaults for collections ###
 defaults:
   - scope:
       path: ""
-      type: posts
+      type: "projects"
     values:
-      layout: post
-      author: Nama Anda
-      comments: true
+      layout: "page"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      comments: true                                   # Set to true to enable disqus comments
 
-# Pengaturan lain
-timezone: Asia/Jakarta
-exclude: [vendor, Gemfile, Gemfile.lock]
+
+### Exclude from processing ###
+exclude:
+  - README.md
+  - CONTRIBUTING.md
+  - LICENSE
+  - "*.log"
